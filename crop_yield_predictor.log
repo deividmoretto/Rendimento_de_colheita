@@ -1,0 +1,30 @@
+2025-06-28 18:09:23,347 - CropYieldPredictor - INFO - Novo modelo criado: linear
+2025-06-28 18:09:23,349 - CropYieldPredictor - INFO - Dados carregados: 3000 linhas x 6 colunas
+2025-06-28 18:09:23,349 - CropYieldPredictor - INFO - Iniciando treinamento robusto do modelo
+2025-06-28 18:09:23,355 - CropYieldPredictor - INFO - Iniciando validação cruzada com 5 folds
+2025-06-28 18:09:23,389 - CropYieldPredictor - INFO - Validação cruzada concluída:
+2025-06-28 18:09:23,389 - CropYieldPredictor - INFO -   R² médio: 1.0000 (±0.0000)
+2025-06-28 18:09:23,389 - CropYieldPredictor - INFO -   RMSE médio: 0.2936 (±0.0051)
+2025-06-28 18:09:23,389 - CropYieldPredictor - INFO - Adicionando ruído com nível: 0.05
+2025-06-28 18:10:07,185 - CropYieldPredictor - INFO - Novo modelo criado: linear
+2025-06-28 18:10:07,187 - CropYieldPredictor - INFO - Dados carregados: 3000 linhas x 6 colunas
+2025-06-28 18:10:07,188 - CropYieldPredictor - INFO - Iniciando treinamento robusto do modelo
+2025-06-28 18:10:07,193 - CropYieldPredictor - INFO - Iniciando validação cruzada com 5 folds
+2025-06-28 18:10:07,226 - CropYieldPredictor - INFO - Validação cruzada concluída:
+2025-06-28 18:10:07,226 - CropYieldPredictor - INFO -   R² médio: 1.0000 (±0.0000)
+2025-06-28 18:10:07,226 - CropYieldPredictor - INFO -   RMSE médio: 0.2936 (±0.0051)
+2025-06-28 18:10:07,226 - CropYieldPredictor - INFO - Adicionando ruído com nível: 0.05
+2025-06-28 18:10:07,230 - CropYieldPredictor - INFO - Adicionando ruído com nível: 0.1
+2025-06-28 18:10:07,234 - CropYieldPredictor - INFO - Adicionando ruído com nível: 0.2
+2025-06-28 18:10:07,238 - CropYieldPredictor - INFO - Iniciando análise de resíduos
+2025-06-28 18:10:07,239 - CropYieldPredictor - INFO - Análise de resíduos:
+2025-06-28 18:10:07,239 - CropYieldPredictor - INFO -   Média dos resíduos: -0.0050
+2025-06-28 18:10:07,239 - CropYieldPredictor - INFO -   Desvio padrão: 0.2861
+2025-06-28 18:10:07,239 - CropYieldPredictor - INFO - Treinamento concluído com sucesso
+2025-06-28 18:10:07,239 - CropYieldPredictor - INFO - Performance final - R²: 1.0000, RMSE: 0.2859
+2025-06-28 18:10:07,240 - CropYieldPredictor - INFO - Previsões realizadas para 1 amostras
+2025-06-28 18:10:07,241 - CropYieldPredictor - INFO - Modelo salvo em: crop_yield_model.joblib
+2025-06-28 18:13:03,813 - CropYieldPredictor - INFO - Novo modelo criado: linear
+2025-06-28 18:13:03,815 - CropYieldPredictor - INFO - Modelo carregado de: crop_yield_model.joblib
+2025-06-28 18:13:50,974 - CropYieldPredictor - INFO - Previsões realizadas para 1 amostras
+2025-06-28 18:14:05,968 - CropYieldPredictor - INFO - Previsões realizadas para 1 amostras

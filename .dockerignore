@@ -1,0 +1,62 @@
+# ============================================================================
+# .dockerignore - Arquivos a serem ignorados no build do Docker
+# ============================================================================
+
+# Ambiente virtual
+venv/
+env/
+.env/
+
+# Arquivos de log
+*.log
+logs/
+crop_yield_predictor.log
+
+# Cache Python
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+.Python
+*.so
+
+# Jupyter Notebooks
+.ipynb_checkpoints/
+*.ipynb
+
+# IDEs
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# Sistema operacional
+.DS_Store
+Thumbs.db
+
+# Git
+.git/
+.gitignore
+
+# README e documentação de desenvolvimento
+README.dev.md
+docs/
+examples/
+
+# Arquivos temporários
+*.tmp
+*.temp
+temp/
+
+# Arquivos de backup
+*.bak
+*.backup
+
+# Arquivos de teste
+test_*.py
+*_test.py
+tests/
+
+# Arquivos de configuração local
+.env.local
+config.local.json 

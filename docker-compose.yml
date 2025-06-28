@@ -1,0 +1,81 @@
+# ============================================================================
+# 🐳 DOCKER COMPOSE - SISTEMA DE PREVISÃO DE RENDIMENTO DE COLHEITA
+# ============================================================================
+version: '3.8'
+
+services:
+  crop-yield-predictor:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    image: crop-yield-predictor:latest
+    container_name: crop_yield_app
+    ports:
+      - "8501:8501"
+    environment:
+      - STREAMLIT_SERVER_PORT=8501
+      - STREAMLIT_SERVER_ADDRESS=0.0.0.0
+      - STREAMLIT_BROWSER_GATHER_USAGE_STATS=false
+      - STREAMLIT_SERVER_HEADLESS=true
+    volumes:
+      # Para desenvolvimento - mount código local (opcional)
+      # - ./app_streamlit.py:/app/app_streamlit.py
+      # - ./crop_yield_predictor.py:/app/crop_yield_predictor.py
+      - logs:/app/logs
+    restart: unless-stopped
+    labels:
+      - "traefik.enable=true"
+      - "traefik.http.routers.crop-yield.rule=Host(`crop-yield.localhost`)"
+      - "traefik.http.services.crop-yield.loadbalancer.server.port=8501"
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:8501/_stcore/health"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+      start_period: 60s
+    networks:
+      - crop-yield-network
+
+  # Opcional: Nginx como proxy reverso (para produção)
+  nginx:
+    image: nginx:alpine
+    container_name: crop_yield_nginx
+    ports:
+      - "80:80"
+      - "443:443"
+    volumes:
+      - ./nginx.conf:/etc/nginx/nginx.conf:ro
+      - ./ssl:/etc/nginx/ssl:ro
+    depends_on:
+      - crop-yield-predictor
+    restart: unless-stopped
+    networks:
+      - crop-yield-network
+    profiles:
+      - production
+
+volumes:
+  logs:
+    driver: local
+
+networks:
+  crop-yield-network:
+    driver: bridge
+
+# ============================================================================
+# COMANDOS ÚTEIS:
+# ============================================================================
+# Desenvolvimento:
+#   docker-compose up --build
+#   docker-compose logs -f crop-yield-predictor
+#
+# Produção (com Nginx):
+#   docker-compose --profile production up -d
+#
+# Scaling:
+#   docker-compose up --scale crop-yield-predictor=3
+#
+# Monitoramento:
+#   docker-compose ps
+#   docker stats
+# ============================================================================ 
